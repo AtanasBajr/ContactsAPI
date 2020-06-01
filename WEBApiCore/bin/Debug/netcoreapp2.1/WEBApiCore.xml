@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WEBApiCore</name>
+    </assembly>
+    <members>
+        <member name="M:WEBApiCore.Controllers.ContactsController.GetContact">
+            <summary>
+            With this api you can list all the contacts in the database with all the skills they possess
+            </summary>
+            <response code="400">Bad request</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ContactsController.GetContact(System.Int32)">
+            <summary>
+            With this api you can list a contact ( with the specific id ) with all the skills he has
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ContactsController.PutContact(System.Int32,WEBApiCore.Models.ContactEditModel)">
+            <summary>
+            With this api you can edit the information of a contact ( including the list of skills he has), if one has an admin token he can
+            edit any contact, if not,  he can only edit one contact that has the same id as the one added as a claim to the token
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ContactsController.PostContact(WEBApiCore.Models.ContactInputModel)">
+            <summary>
+            With this api you can add a contact together with a list of the skills he possess
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ContactsController.DeleteContact(System.Int32)">
+            <summary>
+            With this api you can delete a contact with all the skills he possess, without admin token you can delete only one contact .. 
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ExpertiseLevelsController.GetExpertiseLev">
+            <summary>
+            Retrieves all the available expertise levels that a contact can have for a skill
+            </summary>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ExpertiseLevelsController.GetExpertiseLev(System.Int32)">
+            <summary>
+            Retrieves an expertise level record with the unique id
+            </summary>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ExpertiseLevelsController.PutExpertiseLev(System.Int32,WEBApiCore.Models.ExpertiseLvLEditModel)">
+            <summary>
+            Updates an Expertise level record with the specific id ( Amin Token is needed )
+            </summary>
+              <response code="403">You are forbidden from using this method</response>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ExpertiseLevelsController.PostExpertiseLev(WEBApiCore.Models.ExpertiseLvLInputModel)">
+            <summary>
+            With this api you can add an Expertise level  ( Amin Token is needed )
+            </summary>
+            <response code="400">Bad request</response>
+            /// <response code="403">You are forbidden from using this method</response>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.ExpertiseLevelsController.DeleteExpertiseLev(System.Int32)">
+            <summary>
+            With this api you can delete an Expertise level  ( Amin Token is needed )
+            </summary>
+            <response code="400">Bad request</response>
+             <response code="403">You are forbidden from using this method</response>
+            <response code="404">The record with specific the id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.GetSkills">
+            <summary>
+            Retrieves all the available skills that a contact can have. For every skill, it retrieves a list of all the contacts who have this skill , also it gets the id of the expertise level they possess
+            </summary>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.GetSkills(System.Int32)">
+            <summary>
+            Retrieves a skill with an unique id, also it gets a list of the contacts who have the skill and the id of the expertise level of the skill they have
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.PutSkills(System.Int32,WEBApiCore.Models.EditSkillModel)">
+            <summary>
+            It edits the skill with the id specified ( it requires an admin token),  
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.EditSkillOfContact(System.Int32,WEBApiCore.Models.ContactSkillExpertiseModel)">
+            <summary>
+            It modifies a record that keeps information about which contact has which skill ( if this method is called with a token without Administrator role, he can only edit the skiil to the contact that has the same id as the one added as a claim to the token)
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.PostSkills(WEBApiCore.Models.InputSkillModel)">
+            <summary>
+            It adds another skill ( which can be added to a contact by using an other method ( admin token is needed for this method)
+            </summary>
+            <response code="400">Bad request</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.AddSkillToContact(WEBApiCore.Models.ContactSkillExpertiseEditModel)">
+            <summary>
+            It adds a skill to a contact ( this method can be called with or without administrator role, if it is called with a simple token, it will be able to add skills to contact that has the same id as the one added as a claim to the token)
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.DeleteSkills(System.Int32)">
+            <summary>
+            It deletes a Skill, removes this skill from all the contacts that possess it, also ( admin token is required for this method)
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+        <member name="M:WEBApiCore.Controllers.SkillsController.DeleteSkillFromContact(System.Int32,System.Int32)">
+            <summary>
+            It removes a skill from the possession of a contact ( with adminToken  you can delete any record, with normal token , only a record with the same ContactID as the one added as a Claim in the token)
+            </summary>
+            <response code="400">Bad request</response>
+            <response code="404">The record with specific the specific id is not present in the DB</response>
+        </member>
+    </members>
+</doc>
