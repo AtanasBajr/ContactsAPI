@@ -293,13 +293,7 @@ namespace WEBApiCore.Controllers
             {
                 return NotFound("The item with id " + id + " is not present in the database");
             }
-            var contactSkills = from u in _context.ContactSkillExpertise
-                                where u.ContactId == id
-                                select u;
-            foreach (var item in contactSkills)
-            {
-                 _context.ContactSkillExpertise.Remove(item);
-            }
+           
             
             
 

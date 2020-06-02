@@ -309,13 +309,7 @@ namespace WEBApiCore.Controllers
                 return BadRequest(ModelState);
             }
 
-           //var skills = from u in _context.ContactSkillExpertise
-            //             where id == u.SkillId
-            //             select u;
-            //foreach(var item in skills)
-            //{
-            //    _context.ContactSkillExpertise.Remove(item);
-            //}
+           
             var itemToDelete = _context.Skills.FirstOrDefault(x => x.SkillId == id);
             if (itemToDelete == null)
             {

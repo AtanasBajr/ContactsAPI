@@ -27,4 +27,3 @@ C:\Users\Atanas\source\repos\tes\WEBApiCore\WEBApiCore\obj\Debug\netcoreapp2.1\W
 C:\Users\Atanas\source\repos\tes\WEBApiCore\WEBApiCore\obj\Debug\netcoreapp2.1\WEBApiCore.RazorTargetAssemblyInfo.cache
 C:\Users\Atanas\source\repos\tes\WEBApiCore\WEBApiCore\obj\Debug\netcoreapp2.1\WEBApiCore.dll
 C:\Users\Atanas\source\repos\tes\WEBApiCore\WEBApiCore\obj\Debug\netcoreapp2.1\WEBApiCore.pdb
-C:\Users\Atanas\source\repos\tes\WEBApiCore\WEBApiCore\obj\Debug\netcoreapp2.1\WEBApiCore.csprojAssemblyReference.cache
